@@ -1,0 +1,135 @@
+:mod:`drop.improcessing.edge`
+=============================
+
+.. py:module:: drop.improcessing.edge
+
+
+Module Contents
+---------------
+
+.. function:: detect_edges(image, method='contour', **kwargs)
+
+   Detect the edge of the drop on the image.
+
+
+   :Parameters:
+
+       **image** : ndarray
+           Grayscale image.
+
+       **method** : string, optional
+           Method for detecting contours. Either 'contour' or 'canny'.
+
+       **kwargs** : dict, optional
+           Optional arguments passed to filters.
+
+   :Returns:
+
+       **results** : tuple
+           (edges, R_edges, Z_edges)
+
+
+
+
+
+
+
+
+   .. rubric:: Notes
+
+   `contour` method calls `skimage.measure.find_countours`.
+   The default level is the average of the max and min intensity
+   values.
+   `canny` method calls `skimage.feature.canny` followed by
+   a skeletonization with `skimage.morphology.skeletonize`.
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. function:: fit_circle_tip(shape, RZ_edges, *, method='ransac', debug=False, **kwargs)
+
+   Fit the tip of the drop with a circle.
+
+
+   :Parameters:
+
+       **shape** : tuple
+           Image shape.
+
+       **RZ_edges** : tuple of array
+           (Radial, Vertical) coordinates of the edge.
+
+       **method** : str, optional
+           Name of the method: `ransac` or `hough`.
+
+       **debug** : boolean, optional
+           If `True`, activate plots to visualize the fit.
+
+       **kwargs** : dict, optional
+           Arguments passed to `skimage.measure.ransac`.
+
+   :Returns:
+
+       **parameters** : tuple
+           (center_Z, center_R, radius)
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. function:: guess_angle(edges, center_Z, center_R)
+
+   Guess tilting angle value.
+
+   The value is guessed based on the center position of the
+   tip circle and the center of the drop base.
+
+   :Parameters:
+
+       **edges** : boolean image
+           Image containing the edges to fit.
+
+       **center_Z :**
+           Vertical position of tip circle center.
+
+       **center_R :**
+           Horizontal position of tip circle center.
+
+   :Returns:
+
+       **angle** : scalar
+           ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+

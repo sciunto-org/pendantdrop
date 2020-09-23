@@ -1,0 +1,34 @@
+:mod:`drop`
+===========
+
+.. py:module:: drop
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   improcessing/index.rst
+   io/index.rst
+   optimize/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   utils/index.rst
+
+
+Package Contents
+----------------
+
+.. data:: __version__
+   :annotation: = 0.2.0dev
+
+   
+

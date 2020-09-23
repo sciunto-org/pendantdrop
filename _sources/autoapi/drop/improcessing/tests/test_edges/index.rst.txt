@@ -1,0 +1,27 @@
+:mod:`drop.improcessing.tests.test_edges`
+=========================================
+
+.. py:module:: drop.improcessing.tests.test_edges
+
+
+Module Contents
+---------------
+
+.. function:: test_detect_edges_wrong_method()
+
+
+.. function:: test_detect_edge_simple_edge_contour()
+
+
+.. function:: test_detect_edge_simple_edge_canny()
+
+
+.. function:: test_guess_angle_full_bottom_zero_angle()
+
+
+.. function:: test_guess_angle_full_bottom_positive_angle()
+
+
+.. function:: test_guess_angle_empty_bottom_zero_angle()
+
+

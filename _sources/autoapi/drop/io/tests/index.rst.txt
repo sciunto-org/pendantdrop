@@ -1,0 +1,15 @@
+:mod:`drop.io.tests`
+====================
+
+.. py:module:: drop.io.tests
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   test_io/index.rst
+
+

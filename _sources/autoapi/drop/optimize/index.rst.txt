@@ -1,0 +1,26 @@
+:mod:`drop.optimize`
+====================
+
+.. py:module:: drop.optimize
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   tests/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   deviation/index.rst
+   optimization/index.rst
+   theory/index.rst
+
+

@@ -1,0 +1,38 @@
+:mod:`drop.optimize.tests.test_deviation`
+=========================================
+
+.. py:module:: drop.optimize.tests.test_deviation
+
+
+Module Contents
+---------------
+
+.. function:: test_radialsquared_distance_ShiftedLines()
+
+
+.. function:: test_verticalsquared_distance_ShiftedLines()
+
+
+.. function:: test_shortest_squared_distance_ShiftedLines()
+
+   Note: this tests relies on successful radial and vertical dist.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+

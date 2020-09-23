@@ -1,0 +1,153 @@
+:mod:`drop.optimize.theory`
+===========================
+
+.. py:module:: drop.optimize.theory
+
+
+Module Contents
+---------------
+
+.. data:: dirs
+   
+
+   
+
+.. data:: cachedir
+   
+
+   
+
+.. data:: memory
+   
+
+   
+
+.. function:: young_laplace_diff_equation(space, variables, bond_number)
+
+   Return the derivatives corresponding to the Young-Laplace equation.
+
+
+   :Parameters:
+
+       **space** : 1D-array
+           Space variable.
+
+       **variables** : tuple
+           (phi, r_tilde, z_tilde)
+
+       **bond_number** : scalar
+           Bond number.
+
+   :Returns:
+
+       **derivatives** : tuple
+           (d phi / d s_tilde, d r_tilde / d s_tilde,  d z_tilde / d s_tilde )
+
+
+
+
+
+
+
+
+   .. rubric:: Notes
+
+   tilde means non-dimensionalized by the tip radius.
+
+   .. rubric:: References
+
+   .. [R008a58b5e94e-1] Del Rıo, O. I., and A. W. Neumann. "Axisymmetric drop shape analysis:
+          computational methods for the measurement of interfacial properties
+          from the shape and dimensions of pendant and sessile drops."
+          Journal of colloid and interface science 196.2 (1997): 136-147.
+          :DOI:`10.1006/jcis.1997.5214`
+
+   .. only:: latex
+
+      [R008a58b5e94e-1]_
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. function:: theoretical_contour(bond_number, num_points=1000.0, s_max=10)
+
+   Compute a theoretical contour from the Young-Laplace differential equation.
+
+
+   :Parameters:
+
+       **bond_number** : scalar
+           Bond number.
+
+       **num_points** : scalar, optional
+           Number of points used to compute the profile. These points are
+           evenly spaces from s=0 to s=s_max.
+
+       **s_max** : scalar, optional
+           Maximum value for the curvilinear coordinate.
+
+   :Returns:
+
+       **(R, Z)** : tuple
+           R and Z coordinates.
+
+
+
+
+
+
+
+
+   .. rubric:: Notes
+
+   The profile is non-dimensionalized by the tip radius.
+   The resolution is achieved with `scipy.integrate.solve_ivp`
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. function:: rotate_lines(R, Z, center, theta)
+
+   Rotate with specific angle conversion for our images.
+
+
+   :Parameters:
+
+       **R** : array
+           Radial coordinates.
+
+       **Z** : array
+           Vertical coordinates.
+
+       **center** : tuple
+           Rotation center coordinates.
+
+       **theta** : scalar
+           Rotation angle.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+

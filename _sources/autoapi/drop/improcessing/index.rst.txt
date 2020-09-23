@@ -1,0 +1,25 @@
+:mod:`drop.improcessing`
+========================
+
+.. py:module:: drop.improcessing
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   tests/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   edge/index.rst
+   worthington/index.rst
+
+

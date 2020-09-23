@@ -1,0 +1,45 @@
+:orphan:
+
+:mod:`drop.io._io`
+==================
+
+.. py:module:: drop.io._io
+
+
+Module Contents
+---------------
+
+.. function:: load_image(path, region=None)
+
+   Load an image.
+
+
+   :Parameters:
+
+       **path** : string
+           File path.
+
+       **region** : tuple, optional
+           Tuple: corner positions to crop the image.
+
+   :Returns:
+
+       image
+           ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+

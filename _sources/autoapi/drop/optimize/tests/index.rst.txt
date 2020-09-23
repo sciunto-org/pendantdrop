@@ -1,0 +1,15 @@
+:mod:`drop.optimize.tests`
+==========================
+
+.. py:module:: drop.optimize.tests
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   test_deviation/index.rst
+
+

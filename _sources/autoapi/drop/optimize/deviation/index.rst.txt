@@ -1,0 +1,79 @@
+:mod:`drop.optimize.deviation`
+==============================
+
+.. py:module:: drop.optimize.deviation
+
+
+Module Contents
+---------------
+
+.. function:: radial_RMS(RZ_model, RZ_edges)
+
+   Calculate the radial RMS distance.
+
+   Theoretical points are interpolated on experimental ones.
+
+   :Parameters:
+
+       **RZ_model** : tuple of array
+           (Radial Vertical) coordinates of the theoretical contour.
+
+       **RZ_edges** : tuple of array
+           (Radial, Vertical) coordinates of the edge.
+
+   :Returns:
+
+       RMS
+           ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. function:: shortest_RMS(RZ_model, RZ_edges)
+
+   Calculate the shortest RMS distance.
+
+   Theoretical points are interpolated on experimental ones.
+
+   :Parameters:
+
+       **RZ_model** : tuple of array
+           (Radial Vertical) coordinates of the theoretical contour.
+
+       **RZ_edges** : tuple of array
+           (Radial, Vertical) coordinates of the edge.
+
+   :Returns:
+
+       RMS
+           ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+

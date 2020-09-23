@@ -1,0 +1,85 @@
+:mod:`drop.utils`
+=================
+
+.. py:module:: drop.utils
+
+
+Module Contents
+---------------
+
+.. function:: print_parameters(title, surface_tension, tilt_angle, center_R, center_Z, radius, RMS=None)
+
+
+.. function:: split_profile(R, Z)
+
+   Split a profile in two parts to get a single value for each Z.
+
+
+   :Parameters:
+
+       **R** : array
+           Radial coordinates.
+
+       **Z** : array
+           Vertical coordinates.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. function:: rotate(x, y, cx, cy, angle)
+
+   Rotations of points.
+
+
+   :Parameters:
+
+       **x** : array
+           x-coordinates.
+
+       **y** : array
+           y-coordinates.
+
+       **cx** : scalar
+           x-center coordinate.
+
+       **cy** : scalar
+           y-center coordinate.
+
+       **angle** : scalar
+           Rotation angle in radian.
+
+   :Returns:
+
+       **result** : tuple
+           (x_new, y_new)
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+

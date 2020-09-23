@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>drop.improcessing.edge &#8212; PendantDrop  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-drop.improcessing.edge">
+<span id="drop-improcessing-edge"></span><h1><a class="reference internal" href="#module-drop.improcessing.edge" title="drop.improcessing.edge"><code class="xref py py-mod docutils literal notranslate"><span class="pre">drop.improcessing.edge</span></code></a><a class="headerlink" href="#module-drop.improcessing.edge" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="drop.improcessing.edge.detect_edges">
+<code class="sig-prename descclassname">drop.improcessing.edge.</code><code class="sig-name descname">detect_edges</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'contour'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#drop.improcessing.edge.detect_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the edge of the drop on the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>image</strong><span class="classifier">ndarray</span></dt><dd><p>Grayscale image.</p>
+</dd>
+<dt><strong>method</strong><span class="classifier">string, optional</span></dt><dd><p>Method for detecting contours. Either ‘contour’ or ‘canny’.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Optional arguments passed to filters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>results</strong><span class="classifier">tuple</span></dt><dd><p>(edges, R_edges, Z_edges)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p><cite>contour</cite> method calls <cite>skimage.measure.find_countours</cite>.
+The default level is the average of the max and min intensity
+values.
+<cite>canny</cite> method calls <cite>skimage.feature.canny</cite> followed by
+a skeletonization with <cite>skimage.morphology.skeletonize</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="drop.improcessing.edge.fit_circle_tip">
+<code class="sig-prename descclassname">drop.improcessing.edge.</code><code class="sig-name descname">fit_circle_tip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shape</span></em>, <em class="sig-param"><span class="n">RZ_edges</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'ransac'</span></em>, <em class="sig-param"><span class="n">debug</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#drop.improcessing.edge.fit_circle_tip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the tip of the drop with a circle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shape</strong><span class="classifier">tuple</span></dt><dd><p>Image shape.</p>
+</dd>
+<dt><strong>RZ_edges</strong><span class="classifier">tuple of array</span></dt><dd><p>(Radial, Vertical) coordinates of the edge.</p>
+</dd>
+<dt><strong>method</strong><span class="classifier">str, optional</span></dt><dd><p>Name of the method: <cite>ransac</cite> or <cite>hough</cite>.</p>
+</dd>
+<dt><strong>debug</strong><span class="classifier">boolean, optional</span></dt><dd><p>If <cite>True</cite>, activate plots to visualize the fit.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Arguments passed to <cite>skimage.measure.ransac</cite>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>parameters</strong><span class="classifier">tuple</span></dt><dd><p>(center_Z, center_R, radius)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="drop.improcessing.edge.guess_angle">
+<code class="sig-prename descclassname">drop.improcessing.edge.</code><code class="sig-name descname">guess_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">edges</span></em>, <em class="sig-param"><span class="n">center_Z</span></em>, <em class="sig-param"><span class="n">center_R</span></em><span class="sig-paren">)</span><a class="headerlink" href="#drop.improcessing.edge.guess_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guess tilting angle value.</p>
+<p>The value is guessed based on the center position of the
+tip circle and the center of the drop base.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>edges</strong><span class="classifier">boolean image</span></dt><dd><p>Image containing the edges to fit.</p>
+</dd>
+<dt><strong>center_Z :</strong></dt><dd><p>Vertical position of tip circle center.</p>
+</dd>
+<dt><strong>center_R :</strong></dt><dd><p>Horizontal position of tip circle center.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>angle</strong><span class="classifier">scalar</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">PendantDrop</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, F. Boulogne and other contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/autoapi/drop/improcessing/edge/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

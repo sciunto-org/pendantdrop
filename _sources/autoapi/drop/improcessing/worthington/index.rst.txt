@@ -1,0 +1,62 @@
+:mod:`drop.improcessing.worthington`
+====================================
+
+.. py:module:: drop.improcessing.worthington
+
+
+Module Contents
+---------------
+
+.. function:: worthington(edges, calib, surface_tension, fluid_density, gravity=None)
+
+   Compute the worthington number.
+
+
+   :Parameters:
+
+       **edges** : boolean image
+           Image containing the edges to fit.
+
+       **calib** : scalar
+           Calibration scale in m/px.
+
+       **surface_tension** : scalar
+           Surface tension in N/m.
+
+       **fluid_density** : scalar,
+           Fluid density in kg/m3.
+
+       **gravity** : scalar, optional
+           Gravitational acceleration. If None, `scipy.constants.g` is used.
+
+   :Returns:
+
+       **worthington** : scalar
+           ..
+
+
+
+
+
+
+
+
+
+   .. rubric:: References
+
+   .. [R567b34a47100-1] Berry, Neeson, Dagastine, Chan, Tabor "Measurement of surface and 
+          interfacial tension using pendant drop tensiometry"
+          Journal of Colloid and Interface Science, 2015, 454, 226-237
+          :DOI:`10.1016/j.jcis.2015.05.012`
+
+   .. only:: latex
+
+      [R567b34a47100-1]_
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+

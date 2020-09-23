@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>drop.optimize.optimization &#8212; PendantDrop  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-drop.optimize.optimization">
+<span id="drop-optimize-optimization"></span><h1><a class="reference internal" href="#module-drop.optimize.optimization" title="drop.optimize.optimization"><code class="xref py py-mod docutils literal notranslate"><span class="pre">drop.optimize.optimization</span></code></a><a class="headerlink" href="#module-drop.optimize.optimization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="drop.optimize.optimization.young_laplace">
+<code class="sig-prename descclassname">drop.optimize.optimization.</code><code class="sig-name descname">young_laplace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">surface_tension</span></em>, <em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">center_R</span></em>, <em class="sig-param"><span class="n">center_Z</span></em>, <em class="sig-param"><span class="n">radius</span></em>, <em class="sig-param"><span class="n">density</span></em>, <em class="sig-param"><span class="n">calib</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">RZ_edges</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">gravity</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_points</span><span class="o">=</span><span class="default_value">1000.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#drop.optimize.optimization.young_laplace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Young Laplace solution resized and oriented to the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>surface_tension</strong><span class="classifier">scalar</span></dt><dd><p>Surface tension</p>
+</dd>
+<dt><strong>angle</strong><span class="classifier">scalar</span></dt><dd><p>Tilting angle.</p>
+</dd>
+<dt><strong>center_R</strong><span class="classifier">scalar</span></dt><dd><p>Osculating circle center R-coordinate.</p>
+</dd>
+<dt><strong>center_Z</strong><span class="classifier">scalar</span></dt><dd><p>Osculating circle center Z-coordinate.</p>
+</dd>
+<dt><strong>radius</strong><span class="classifier">scalar</span></dt><dd><p>Osculating circle radius.</p>
+</dd>
+<dt><strong>density</strong><span class="classifier">scalar</span></dt><dd><p>Fluid density.</p>
+</dd>
+<dt><strong>calib</strong><span class="classifier">scalar</span></dt><dd><p>Calibration in m per px.</p>
+</dd>
+<dt><strong>RZ_edges</strong><span class="classifier">tuple of array, optional</span></dt><dd><p>(Radial, Vertical) coordinates of the edge.
+Used to crop the profile to the experimental profile.
+If None, the solution is not cropped.</p>
+</dd>
+<dt><strong>gravity</strong><span class="classifier">scalar, optional</span></dt><dd><p>Gravitational acceleration. If None, <cite>scipy.constants.g</cite> is used.</p>
+</dd>
+<dt><strong>num_points</strong><span class="classifier">scalar, optional</span></dt><dd><p>Number of points used in <cite>theoretical_contour</cite></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>coordinates</strong><span class="classifier">tuple</span></dt><dd><p>(R, Z)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="drop.optimize.optimization.deviation_edge_model_simple">
+<code class="sig-prename descclassname">drop.optimize.optimization.</code><code class="sig-name descname">deviation_edge_model_simple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variables</span></em>, <em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">center_R</span></em>, <em class="sig-param"><span class="n">center_Z</span></em>, <em class="sig-param"><span class="n">radius</span></em>, <em class="sig-param"><span class="n">RZ_edges</span></em>, <em class="sig-param"><span class="n">density</span></em>, <em class="sig-param"><span class="n">calib</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">RMS</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#drop.optimize.optimization.deviation_edge_model_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the RMS for a profile given by set of parameters to the experimental profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variables</strong><span class="classifier">tuple</span></dt><dd><p>(surface tension, angle, center_R)</p>
+</dd>
+<dt><strong>angle</strong><span class="classifier">scalar</span></dt><dd></dd>
+<dt><strong>center_R :</strong></dt><dd></dd>
+<dt><strong>center_Z :</strong></dt><dd></dd>
+<dt><strong>radius :</strong></dt><dd></dd>
+<dt><strong>RZ_edges</strong><span class="classifier">tuple of array</span></dt><dd><p>(Radial, Vertical) coordinates of the edge.</p>
+</dd>
+<dt><strong>calib</strong><span class="classifier">scalar</span></dt><dd><p>Calibration in m per px.</p>
+</dd>
+<dt><strong>RMS</strong><span class="classifier">callable</span></dt><dd><p>function(R_theo, Z_theo, RZ_edges) to compute the RMS.
+If None, radial_RMS is used.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>RMS</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="drop.optimize.optimization.deviation_edge_model_full">
+<code class="sig-prename descclassname">drop.optimize.optimization.</code><code class="sig-name descname">deviation_edge_model_full</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variables</span></em>, <em class="sig-param"><span class="n">RZ_edges</span></em>, <em class="sig-param"><span class="n">density</span></em>, <em class="sig-param"><span class="n">calib</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">RMS</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#drop.optimize.optimization.deviation_edge_model_full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the RMS for a profile given by set of parameters to the experimental profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variables</strong><span class="classifier">tuple</span></dt><dd><p>(surface tension, angle, center_R)</p>
+</dd>
+<dt><strong>RZ_edges</strong><span class="classifier">tuple of array</span></dt><dd><p>(Radial, Vertical) coordinates of the edge.</p>
+</dd>
+<dt><strong>calib</strong><span class="classifier">scalar</span></dt><dd><p>Calibration in m per px.</p>
+</dd>
+<dt><strong>RMS</strong><span class="classifier">callable</span></dt><dd><p>function(R_theo, Z_theo, RZ_edges) to compute the RMS.
+If None, radial_RMS is used.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>RMS</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">PendantDrop</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, F. Boulogne and other contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/autoapi/drop/optimize/optimization/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

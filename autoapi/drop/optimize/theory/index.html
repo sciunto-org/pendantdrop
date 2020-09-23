@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>drop.optimize.theory &#8212; PendantDrop  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-drop.optimize.theory">
+<span id="drop-optimize-theory"></span><h1><a class="reference internal" href="#module-drop.optimize.theory" title="drop.optimize.theory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">drop.optimize.theory</span></code></a><a class="headerlink" href="#module-drop.optimize.theory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="py data">
+<dt id="drop.optimize.theory.dirs">
+<code class="sig-prename descclassname">drop.optimize.theory.</code><code class="sig-name descname">dirs</code><a class="headerlink" href="#drop.optimize.theory.dirs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="drop.optimize.theory.cachedir">
+<code class="sig-prename descclassname">drop.optimize.theory.</code><code class="sig-name descname">cachedir</code><a class="headerlink" href="#drop.optimize.theory.cachedir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="drop.optimize.theory.memory">
+<code class="sig-prename descclassname">drop.optimize.theory.</code><code class="sig-name descname">memory</code><a class="headerlink" href="#drop.optimize.theory.memory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="drop.optimize.theory.young_laplace_diff_equation">
+<code class="sig-prename descclassname">drop.optimize.theory.</code><code class="sig-name descname">young_laplace_diff_equation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">space</span></em>, <em class="sig-param"><span class="n">variables</span></em>, <em class="sig-param"><span class="n">bond_number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#drop.optimize.theory.young_laplace_diff_equation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the derivatives corresponding to the Young-Laplace equation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>space</strong><span class="classifier">1D-array</span></dt><dd><p>Space variable.</p>
+</dd>
+<dt><strong>variables</strong><span class="classifier">tuple</span></dt><dd><p>(phi, r_tilde, z_tilde)</p>
+</dd>
+<dt><strong>bond_number</strong><span class="classifier">scalar</span></dt><dd><p>Bond number.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>derivatives</strong><span class="classifier">tuple</span></dt><dd><p>(d phi / d s_tilde, d r_tilde / d s_tilde,  d z_tilde / d s_tilde )</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>tilde means non-dimensionalized by the tip radius.</p>
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="r008a58b5e94e-1"><span class="brackets">1</span></dt>
+<dd><p>Del Rıo, O. I., and A. W. Neumann. “Axisymmetric drop shape analysis:
+computational methods for the measurement of interfacial properties
+from the shape and dimensions of pendant and sessile drops.”
+Journal of colloid and interface science 196.2 (1997): 136-147.
+<a class="reference external" href="https://doi.org/10.1006/jcis.1997.5214">DOI:10.1006/jcis.1997.5214</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="drop.optimize.theory.theoretical_contour">
+<code class="sig-prename descclassname">drop.optimize.theory.</code><code class="sig-name descname">theoretical_contour</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bond_number</span></em>, <em class="sig-param"><span class="n">num_points</span><span class="o">=</span><span class="default_value">1000.0</span></em>, <em class="sig-param"><span class="n">s_max</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#drop.optimize.theory.theoretical_contour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a theoretical contour from the Young-Laplace differential equation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>bond_number</strong><span class="classifier">scalar</span></dt><dd><p>Bond number.</p>
+</dd>
+<dt><strong>num_points</strong><span class="classifier">scalar, optional</span></dt><dd><p>Number of points used to compute the profile. These points are
+evenly spaces from s=0 to s=s_max.</p>
+</dd>
+<dt><strong>s_max</strong><span class="classifier">scalar, optional</span></dt><dd><p>Maximum value for the curvilinear coordinate.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>(R, Z)</strong><span class="classifier">tuple</span></dt><dd><p>R and Z coordinates.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The profile is non-dimensionalized by the tip radius.
+The resolution is achieved with <cite>scipy.integrate.solve_ivp</cite></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="drop.optimize.theory.rotate_lines">
+<code class="sig-prename descclassname">drop.optimize.theory.</code><code class="sig-name descname">rotate_lines</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">R</span></em>, <em class="sig-param"><span class="n">Z</span></em>, <em class="sig-param"><span class="n">center</span></em>, <em class="sig-param"><span class="n">theta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#drop.optimize.theory.rotate_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate with specific angle conversion for our images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>R</strong><span class="classifier">array</span></dt><dd><p>Radial coordinates.</p>
+</dd>
+<dt><strong>Z</strong><span class="classifier">array</span></dt><dd><p>Vertical coordinates.</p>
+</dd>
+<dt><strong>center</strong><span class="classifier">tuple</span></dt><dd><p>Rotation center coordinates.</p>
+</dd>
+<dt><strong>theta</strong><span class="classifier">scalar</span></dt><dd><p>Rotation angle.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">PendantDrop</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, F. Boulogne and other contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/autoapi/drop/optimize/theory/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

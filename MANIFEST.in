@@ -1,6 +1,0 @@
-include *.md *.txt
-recursive-include data *.png
-
-include docs/Makefile
-recursive-include docs/source *.rst
-recursive-include docs *.py

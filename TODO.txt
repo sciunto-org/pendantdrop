@@ -1,5 +1,0 @@
-We implemented the radial distance and the orthogonal distance.
-Although the orthogonal distance must be correct, we could use also the Orthogonal distance regression in scipy:
-https://docs.scipy.org/doc/scipy/reference/odr.html#module-scipy.odr
-
-
